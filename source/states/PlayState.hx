@@ -607,6 +607,10 @@ class PlayState extends MusicBeatState
 			eventNotes.sort(sortByTime);
 		}
 
+		#if LUA_ALLOWED
+		if (SONG.modchart != null) startLuasNamed('modcharts/' + SONG.modchart + '.lua');
+		#end
+
 		// SONG SPECIFIC SCRIPTS
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/$songName/'))
@@ -623,7 +627,7 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
-
+	
 		startCallback();
 		RecalculateRating();
 

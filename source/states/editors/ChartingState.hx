@@ -495,6 +495,21 @@ class ChartingState extends MusicBeatState
 
 		var tempArray:Array<String> = [];
 		var characters:Array<String> = Mods.mergeAllTextsNamed('data/characterList.txt', Paths.getSharedPath());
+
+		var allFiles = FileSystem.readDirectory(Paths.getSharedPath() + 'modcharts/');
+
+        var modchartArr = allFiles
+            .filter(f -> f.endsWith('.lua'))
+            .map(f -> f.substr(0, f.length - '.lua'.length));
+
+		
+		var modcharts:Array<String> = [''];
+		for (modchart in modchartArr)
+		{
+			modcharts.push(modchart);
+		}
+		
+
 		for (character in characters)
 		{
 			if(character.trim().length > 0)
@@ -538,7 +553,14 @@ class ChartingState extends MusicBeatState
 		gfVersionDropDown.selectedLabel = _song.gfVersion;
 		blockPressWhileScrolling.push(gfVersionDropDown);
 
-		var player2DropDown = new FlxUIDropDownMenu(player1DropDown.x, gfVersionDropDown.y + 40, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
+		var modchartDropDown = new FlxUIDropDownMenu(player1DropDown.x, player1DropDown.y + 80, FlxUIDropDownMenu.makeStrIdLabelArray(modcharts, true), function(modchart:String)
+		{
+			_song.modchart = modcharts[Std.parseInt(modchart)];
+		});
+		modchartDropDown.selectedLabel = _song.modchart;
+		blockPressWhileScrolling.push(modchartDropDown);
+
+		var player2DropDown = new FlxUIDropDownMenu(player1DropDown.x + 140, gfVersionDropDown.y + 40, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
 			_song.player2 = characters[Std.parseInt(character)];
 			updateJsonData();
@@ -610,10 +632,12 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(new FlxText(stepperSpeed.x, stepperSpeed.y - 15, 0, 'Song Speed:'));
 		tab_group_song.add(new FlxText(player2DropDown.x, player2DropDown.y - 15, 0, 'Opponent:'));
 		tab_group_song.add(new FlxText(gfVersionDropDown.x, gfVersionDropDown.y - 15, 0, 'Girlfriend:'));
+		tab_group_song.add(new FlxText(modchartDropDown.x, modchartDropDown.y - 15, 0, 'Modchart:'));
 		tab_group_song.add(new FlxText(player1DropDown.x, player1DropDown.y - 15, 0, 'Boyfriend:'));
 		tab_group_song.add(new FlxText(stageDropDown.x, stageDropDown.y - 15, 0, 'Stage:'));
 		tab_group_song.add(player2DropDown);
 		tab_group_song.add(gfVersionDropDown);
+		tab_group_song.add(modchartDropDown);
 		tab_group_song.add(player1DropDown);
 		tab_group_song.add(stageDropDown);
 

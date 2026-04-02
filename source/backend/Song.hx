@@ -28,6 +28,7 @@ typedef SwagSong =
 
 	@:optional var arrowSkin:String;
 	@:optional var splashSkin:String;
+	@:optional var modchart:String; //yes we're doing this
 }
 
 class Song
