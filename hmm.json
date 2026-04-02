@@ -118,6 +118,10 @@
       "dir": null,
       "ref": "funkin-dev",
       "url": "https://github.com/T5mpler/hscript-dnb"
+    },
+    {
+      "name": "hxWindowColorMode",
+      "type": "haxelib"
     }
   ]
 }

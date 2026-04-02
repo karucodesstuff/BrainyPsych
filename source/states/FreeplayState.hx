@@ -12,6 +12,8 @@ import substates.ResetScoreSubState;
 
 import flixel.math.FlxMath;
 
+import hxwindowmode.WindowColorMode;
+
 class FreeplayState extends MusicBeatState
 {
 	var songs:Array<SongMetadata> = [];
@@ -410,6 +412,14 @@ class FreeplayState extends MusicBeatState
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
+
+		var r:Int = (bg.color >> 16) & 0xFF;
+		var g:Int = (bg.color >> 8) & 0xFF;
+		var b:Int = bg.color & 0xFF;
+
+		var rgb:Array<Int> = [r, g, b];
+
+		WindowColorMode.setWindowBorderColor(rgb);
 
 		updateTexts(elapsed);
 		super.update(elapsed);
