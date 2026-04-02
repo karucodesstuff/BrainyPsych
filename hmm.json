@@ -75,6 +75,49 @@
       "dir": null,
       "ref": "master",
       "url": "https://github.com/superpowers04/linc_luajit"
+    },
+    {
+         "name": "polymod",
+         "type": "git",
+         "dir": null,
+         "ref": "experimental",
+         "url": "https://github.com/T5mpler/polymod-dnb.git"
+      },
+      {
+         "name": "json2object",
+         "type": "git",
+         "dir": null,
+         "ref": "a8c26f18463c98da32f744c214fe02273e1823fa",
+         "url": "https://github.com/FunkinCrew/json2object"
+      },
+
+      {
+         "name": "thx.core",
+         "type": "git",
+         "dir": null,
+         "ref": "master",
+         "url": "https://github.com/fponticelli/thx.core.git"
+      },
+      {
+         "name": "jsonpatch",
+         "type": "git",
+         "dir": null,
+         "ref": "f9b83215acd586dc28754b4ae7f69d4c06c3b4d3",
+         "url": "https://github.com/EliteMasterEric/jsonpatch"
+      },
+      {
+         "name": "jsonpath",
+         "type": "git",
+         "dir": null,
+         "ref": "7a24193717b36393458c15c0435bb7c4470ecdda",
+         "url": "https://github.com/EliteMasterEric/jsonpath"
+      },
+    {
+      "name": "hscript",
+      "type": "git",
+      "dir": null,
+      "ref": "funkin-dev",
+      "url": "https://github.com/T5mpler/hscript-dnb"
     }
   ]
 }

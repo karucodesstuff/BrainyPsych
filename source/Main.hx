@@ -62,6 +62,10 @@ class Main extends Sprite
 	{	
 		super();
 
+		#if polymod
+		Funkin.polymod.refresh();
+		#end
+
 		// Credits to MAJigsaw77 (he's the og author for this code)
 		#if android
 		Sys.setCwd(Path.addTrailingSlash(Context.getExternalFilesDir()));
