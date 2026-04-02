@@ -12,7 +12,9 @@ import substates.ResetScoreSubState;
 
 import flixel.math.FlxMath;
 
+#if hxWindowColorMode
 import hxwindowmode.WindowColorMode;
+#end
 
 class FreeplayState extends MusicBeatState
 {
@@ -413,6 +415,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 
+		#if hxWindowColorMode
 		var r:Int = (bg.color >> 16) & 0xFF;
 		var g:Int = (bg.color >> 8) & 0xFF;
 		var b:Int = bg.color & 0xFF;
@@ -420,6 +423,7 @@ class FreeplayState extends MusicBeatState
 		var rgb:Array<Int> = [r, g, b];
 
 		WindowColorMode.setWindowBorderColor(rgb);
+		#end
 
 		updateTexts(elapsed);
 		super.update(elapsed);
